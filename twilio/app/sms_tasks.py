@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 
 import contacts
+import os
 import time
 from twilio.rest import Client
 
-def hammer_sms(s, to, from_="+14158773164"):
+def hammer_sms(s, to, from_):
     """notice proper formatting of US phone numbers
     """
 
@@ -22,7 +23,7 @@ def hammer_sms(s, to, from_="+14158773164"):
         print(message.sid)
         time.sleep(3)
 
-def multi_hammer(s, contact_dict, from_="+14158773164"):
+def multi_hammer(s, contact_dict, from_):
     """notice proper formatting of US phone numbers
     """
 
@@ -42,7 +43,7 @@ def multi_hammer(s, contact_dict, from_="+14158773164"):
         time.sleep(3)
 
 if __name__ == "__main__":
-    to="+14154818386"
+    to = os.env['TWILIO_TO']
     # hammer_sms("getting so crazy at holberton right now", to)
     multi_hammer("getting so crazy at holberton right now", contacts.d)
     
