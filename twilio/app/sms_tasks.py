@@ -12,6 +12,8 @@ def hammer_sms(s, to, from_):
     account_sid = os.environ['TWILIO_ID']
     # Auth Token from twilio.com/console
     auth_token = os.environ['TWILIO_SECRET']
+    call_from = os.environ['TWILIO_FROM']
+    call_to_default = os.environ['TWILIO_TO']
     client = Client(account_sid, auth_token)
 
     for word in s.split():    
@@ -30,6 +32,8 @@ def multi_hammer(s, contact_dict, from_):
     account_sid = os.environ['TWILIO_ID']
     # Auth Token from twilio.com/console
     auth_token = os.environ['TWILIO_SECRET']
+    call_from = os.environ['TWILIO_FROM']
+    call_to_default = os.environ['TWILIO_TO']
     client = Client(account_sid, auth_token)
 
     for word in s.split():

@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Simple Flask web application"""
 
+import os
 from flask import Flask, jsonify
 import sms_tasks as sms
 from flask import request
@@ -22,7 +23,9 @@ def text_larry():
     '''
     if not request.json or 'msg' not in request.json:
         abort(400)
-    num_texts = sms.hammer_sms(request.json['msg'], '4154818386')
+    call_from = os.environ['TWILIO_FROM']
+    call_to_default = os.environ['TWILIO_TO']
+    num_texts = sms.hammer_sms(request.json['msg'], call_from, call_to_default)
     return jsonify({'texts': str(len(texts))}), 201
 
 
