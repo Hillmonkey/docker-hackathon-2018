@@ -1,3 +1,6 @@
 archive/
 twilio-local/
+app/__pycache__/
+*pyc
+*swp
 
