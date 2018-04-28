@@ -1,17 +1,17 @@
 #!/usr/bin/python3
 
 import contacts
+import os
 import time
 from twilio.rest import Client
 
-def hammer_sms(s, to, from_="+14158773164"):
+def hammer_sms(s, to, from_):
     """notice proper formatting of US phone numbers
     """
-
     # Account SID from twilio.com/console
-	account_sid = os.environ['TWILIO_ID']
+    account_sid = os.environ['TWILIO_ID']
     # Auth Token from twilio.com/console
-	auth_token = os.environ['TWILIO_SECRET']
+    auth_token = os.environ['TWILIO_SECRET']
     client = Client(account_sid, auth_token)
 
     for word in s.split():    
@@ -22,14 +22,14 @@ def hammer_sms(s, to, from_="+14158773164"):
         print(message.sid)
         time.sleep(3)
 
-def multi_hammer(s, contact_dict, from_="+14158773164"):
+def multi_hammer(s, contact_dict, from_):
     """notice proper formatting of US phone numbers
     """
 
     # Account SID from twilio.com/console
-	account_sid = os.environ['TWILIO_ID']
+    account_sid = os.environ['TWILIO_ID']
     # Auth Token from twilio.com/console
-	auth_token = os.environ['TWILIO_SECRET']
+    auth_token = os.environ['TWILIO_SECRET']
     client = Client(account_sid, auth_token)
 
     for word in s.split():
@@ -42,7 +42,7 @@ def multi_hammer(s, contact_dict, from_="+14158773164"):
         time.sleep(3)
 
 if __name__ == "__main__":
-    to="+14154818386"
+    to = os.env['TWILIO_TO']
     # hammer_sms("getting so crazy at holberton right now", to)
     multi_hammer("getting so crazy at holberton right now", contacts.d)
     
