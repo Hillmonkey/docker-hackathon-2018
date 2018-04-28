@@ -8,11 +8,10 @@ from twilio.rest import Client
 def hammer_sms(s, to, from_):
     """notice proper formatting of US phone numbers
     """
-
     # Account SID from twilio.com/console
-	account_sid = os.environ['TWILIO_ID']
+    account_sid = os.environ['TWILIO_ID']
     # Auth Token from twilio.com/console
-	auth_token = os.environ['TWILIO_SECRET']
+    auth_token = os.environ['TWILIO_SECRET']
     client = Client(account_sid, auth_token)
 
     for word in s.split():    
@@ -28,9 +27,9 @@ def multi_hammer(s, contact_dict, from_):
     """
 
     # Account SID from twilio.com/console
-	account_sid = os.environ['TWILIO_ID']
+    account_sid = os.environ['TWILIO_ID']
     # Auth Token from twilio.com/console
-	auth_token = os.environ['TWILIO_SECRET']
+    auth_token = os.environ['TWILIO_SECRET']
     client = Client(account_sid, auth_token)
 
     for word in s.split():
