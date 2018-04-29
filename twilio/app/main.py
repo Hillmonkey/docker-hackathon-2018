@@ -25,8 +25,8 @@ def text_larry():
         abort(400)
     call_from = os.environ['TWILIO_FROM']
     call_to_default = os.environ['TWILIO_TO']
-    num_texts = sms.hammer_sms(request.json['msg'], call_from, call_to_default)
-    return jsonify({'texts': str(len(texts))}), 201
+    num_texts = sms.hammer_sms(request.json['msg'], call_to_default, call_from)
+    return jsonify({'texts': str(num_texts)}), 201
 
 
 if __name__ == "__main__":
